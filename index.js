@@ -41,29 +41,50 @@ app.get('/newEntry', (req, res) => {
 });
 
 // Define a route to handle POST requests to /newEntry
+const GuestBook = require('./models/guestbookModel'); // Adjust the path as needed
+
 app.post('/newEntry', (req, res) => {
-  // Import the GuestBook class and initialize it with the correct database file path
-  const GuestBook = require('./models/guestbookModel'); // Assuming this is your model file
-  const db = new GuestBook(path.join(__dirname, 'routes', 'guestbook.db')); // Path to your NeDB database file
+  // Initialize the database
+  const db = new GuestBook(path.join(__dirname, 'routes', 'guestbook.db'));
 
   try {
-    // Extract form fields from req.body (adjust property names based on your form)
-    const { author, content } = req.body; // Assuming these are your form fields
+    // Extract form fields from req.body
+    const { author, content } = req.body;
+
+    // Log the received form data for debugging
+    console.log('Form data received:', { author, content });
+
+    // Validate that all required fields are provided
+    if (!author || !content) {
+      console.error('Validation failed: Missing fields. Received:', { author, content });
+      return res.status(400).send('All fields must be filled.');
+    }
 
     // Add the entry to the database
-    db.addEntry(author, content) // Replace with your model's add function name
+    db.addEntry(author, content)
       .then(() => {
+        console.log('Entry added successfully.');
         res.redirect('/'); // Redirect to the main page or a success page
       })
       .catch((error) => {
-        console.error('Error adding entry to the database:', error.message);
+        // Log detailed error information
+        console.error('Error adding entry to the database:', {
+          message: error.message,
+          stack: error.stack,
+        });
         res.status(500).send('Error adding entry to the database: ' + error.message);
       });
+
   } catch (error) {
-    console.error('Error processing form data:', error.message);
+    // Log detailed error information
+    console.error('Error processing form data:', {
+      message: error.message,
+      stack: error.stack,
+    });
     res.status(500).send('Error processing form data: ' + error.message);
   }
 });
+
 
 // Define a simple route to test if the server is running
 app.get('/', (req, res) => {
