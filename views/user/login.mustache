@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Basic styling for the body */
+        body {
+            font-family: Arial, sans-serif; /* Font style for the entire page */
+            background-color: #F0F4F8; /* Light grey background color */
+            color: #333; /* Dark grey text color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange children in a column */
+            min-height: 100vh; /* Ensure the body covers the full viewport height */
+        }
+
+        /* Styling for the main container */
+        .container {
+            max-width: 800px; /* Maximum width of the container */
+            margin: 50px auto; /* Center the container with vertical margins */
+            padding: 20px; /* Padding inside the container */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            flex: 1; /* Allow the container to fill available vertical space */
+        }
+
+        /* Styling for the header section */
+        .header {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Center-align text */
+            padding: 20px; /* Padding inside the header */
+            font-size: 2rem; /* Large font size for the header text */
+            font-weight: bold; /* Bold text */
+            border-top-left-radius: 10px; /* Rounded top-left corner */
+            border-top-right-radius: 10px; /* Rounded top-right corner */
+            position: relative; /* Position relative for absolute positioning of child elements */
+        }
+
+        /* Styling for the image inside the header */
+        .header img {
+            position: absolute; /* Position image absolutely within the header */
+            top: 10px; /* Distance from the top */
+            left: 10px; /* Distance from the left */
+            width: 100px; /* Set a fixed width */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Styling for the footer section */
+        .footer {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Center-align text */
+            padding: 20px; /* Padding inside the footer */
+            border-bottom-left-radius: 10px; /* Rounded bottom-left corner */
+            border-bottom-right-radius: 10px; /* Rounded bottom-right corner */
+            margin-top: auto; /* Push the footer to the bottom of the page */
+        }
+
+        /* Styling for the main heading */
+        h1 {
+            text-align: center; /* Center-align heading text */
+            margin-bottom: 30px; /* Margin below the heading */
+            color: #ECF0F1; /* Light grey text color */
+        }
+
+        /* Styling for subheadings */
+        h2 {
+            text-align: center; /* Center-align subheading text */
+            margin-bottom: 20px; /* Margin below the subheading */
+            color: #2C3E50; /* Dark blue text color */
+        }
+
+        /* Styling for the form content */
+        #formContent {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 20px; /* Padding inside the form content */
+            border-radius: 8px; /* Rounded corners */
+            margin-top: 20px; /* Margin above the form content */
+        }
+
+        /* Styling for form groups */
+        .form-group {
+            margin-bottom: 20px; /* Margin below form groups */
+        }
+
+        /* Styling for form controls */
+        .form-control {
+            border-radius: 4px; /* Rounded corners for input fields */
+        }
+
+        /* Styling for primary buttons */
+        .btn-primary {
+            width: 100%; /* Full width buttons */
+            border-radius: 4px; /* Rounded corners */
+            background-color: #3498DB; /* Charity Hospice button color */
+            border: none; /* Remove border */
+        }
+
+        /* Styling for primary button hover state */
+        .btn-primary:hover {
+            background-color: #2980B9; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section -->
+    <div class="header">
+        <img src="/charityLogo.png" alt="Logo"> <!-- Correct path to the image -->
+        <h1>Welcome Back</h1> <!-- Main heading -->
+    </div>
+    <!-- Main content container -->
+    <div class="container">
+        <h2>Sign In</h2> <!-- Subheading for the sign-in section -->
+        <div id="formContent">
+            <!-- Login Form -->
+            <form method="POST" action="/login"> <!-- Form for user login -->
+                <div class="form-group">
+                    <label for="username">User Name</label> <!-- Label for the username input -->
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Username"> <!-- Username input field -->
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label> <!-- Label for the password input -->
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password"> <!-- Password input field -->
+                </div>
+                <input type="submit" class="btn btn-primary" value="Sign In"> <!-- Submit button -->
+            </form>
+        </div>
+    </div>
+    <!-- Footer section -->
+    <footer class="footer">
+        <p>&copy; 2024 Charity Hospice. All rights reserved.</p> <!-- Footer content -->
+    </footer>
+</body>
+</html>

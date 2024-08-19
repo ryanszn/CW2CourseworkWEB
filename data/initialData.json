@@ -1,0 +1,72 @@
+[
+    {
+        "author": "Alice",
+        "subject": "Vintage armchair",
+        "contents": "A well-maintained vintage armchair in excellent condition.", 
+        "published": "2024-08-01", 
+        "price": "150.00" 
+    },
+    {
+        "author": "Bob",
+        "subject": "Modern lamp",
+        "contents": "A sleek modern lamp, perfect for any room.",
+        "published": "2024-08-05",
+        "price": "45.00"
+    },
+    {
+        "author": "Carol",
+        "subject": "Electric kettle",
+        "contents": "An electric kettle with fast boiling feature.",
+        "published": "2024-08-10",
+        "price": "25.00"
+    },
+    {
+        "author": "Dave",
+        "subject": "Dining table",
+        "contents": "A large dining table with six chairs.",
+        "published": "2024-08-15",
+        "price": "200.00"
+    },
+    {
+        "author": "Eve",
+        "subject": "Bookshelf",
+        "contents": "A wooden bookshelf with multiple shelves.",
+        "published": "2024-08-20",
+        "price": "80.00"
+    },
+    {
+        "author": "Frank",
+        "subject": "Gaming console",
+        "contents": "A latest model gaming console with two controllers.",
+        "published": "2024-08-25",
+        "price": "300.00"
+    },
+    {
+        "author": "Grace",
+        "subject": "Coffee maker",
+        "contents": "A coffee maker with programmable settings.",
+        "published": "2024-08-30",
+        "price": "60.00"
+    },
+    {
+        "author": "Hank",
+        "subject": "Leather sofa",
+        "contents": "A comfortable leather sofa, very gently used.",
+        "published": "2024-09-01",
+        "price": "400.00"
+    },
+    {
+        "author": "Ivy",
+        "subject": "Desk lamp",
+        "contents": "A stylish desk lamp with adjustable brightness.",
+        "published": "2024-09-05",
+        "price": "30.00"
+    },
+    {
+        "author": "Jack",
+        "subject": "Washing machine",
+        "contents": "A reliable washing machine with multiple wash cycles.",
+        "published": "2024-09-10",
+        "price": "250.00"
+    }
+]

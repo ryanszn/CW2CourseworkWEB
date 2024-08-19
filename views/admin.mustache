@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Title of the page -->
+    <title>Dashboard</title>
+    
+    <style>
+        /* Base styles for the body element */
+        body {
+            font-family: Arial, sans-serif; /* Sets the font for the page */
+            background-color: #F0F4F8; /* Light grey background color */
+            color: #333; /* Dark text color */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+            display: flex; /* Flexbox layout */
+            flex-direction: column; /* Stacks content vertically */
+            min-height: 100vh; /* Ensures the body covers the full viewport height */
+        }
+        
+        /* Styles for the container holding the main content */
+        .container {
+            max-width: 800px; /* Sets a maximum width for the container */
+            margin: 0 auto; /* Centers the container horizontally */
+            padding: 20px; /* Adds padding inside the container */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 10px; /* Rounds the corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            flex: 1; /* Allows the container to grow and fill available space */
+            text-align: center; /* Centers text inside the container */
+        }
+        
+        /* Styles for the header section */
+        .header {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Centers text horizontally */
+            padding: 20px; /* Adds padding inside the header */
+            font-size: 2rem; /* Sets a larger font size for the header text */
+            font-weight: bold; /* Makes the header text bold */
+            border-top-left-radius: 10px; /* Rounds the top-left corner */
+            border-top-right-radius: 10px; /* Rounds the top-right corner */
+            margin-bottom: 20px; /* Adds space below the header */
+            position: relative; /* Positions the logo image absolutely within this header */
+        }
+        
+        /* Styles for the main heading inside the header */
+        .header h1 {
+            margin: 0; /* Removes default margin */
+            color: #ECF0F1; /* Sets the heading text color to light grey */
+        }
+        
+        /* Styles for primary buttons */
+        .btn-primary {
+            background-color: #3498DB; /* Charity Hospice button color */
+            border: none; /* Removes border */
+            border-radius: 4px; /* Rounds button corners */
+            margin-bottom: 10px; /* Adds space below each button */
+        }
+        
+        /* Styling for primary button hover state */
+        .btn-primary:hover {
+            background-color: #2980B9; /* Darker blue on hover */
+        }
+
+        /* Styles for the footer section */
+        .footer {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Centers text horizontally */
+            padding: 20px; /* Adds padding inside the footer */
+            border-bottom-left-radius: 10px; /* Rounds the bottom-left corner */
+            border-bottom-right-radius: 10px; /* Rounds the bottom-right corner */
+            margin-top: auto; /* Pushes the footer to the bottom of the page */
+        }
+        
+        /* Styles for the logo image in the header */
+        .header img {
+            position: absolute; /* Positions the logo image absolutely within the header */
+            left: 10px; /* Aligns the image to the left */
+            top: 50%; /* Centers the image vertically */
+            transform: translateY(-50%); /* Adjusts for vertical centering */
+            width: 80px; /* Sets a fixed width for the image */
+            height: auto; /* Maintains aspect ratio */
+        }
+
+        /* Styles for button container */
+        .btn-container {
+            display: flex; /* Flexbox layout */
+            flex-direction: column; /* Stacks buttons vertically */
+            gap: 15px; /* Adds space between buttons */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section with branding and page title -->
+    <div class="header">
+        <img src="/charityLogo.png" alt="Charity Hospice Logo"> <!-- Correct path to the image -->
+        <h1>Dashboard</h1> <!-- Main heading of the page -->
+    </div>
+    
+    <!-- Main content area -->
+    <div class="container">
+        <!-- Conditional content rendering based on user authentication status -->
+        {{^user}}
+            <!-- Buttons for users who are not authenticated -->
+            <div class="btn-container">
+                <a href="/register" class="btn btn-primary">Register</a>
+                <a href="/login" class="btn btn-primary">Sign in</a>
+            </div>
+        {{/user}}
+        {{#user}}
+            <!-- Buttons for authenticated users -->
+            <div class="btn-container">
+                <a href="/entries" class="btn btn-primary">View Posts</a>
+                <a href="/new" class="btn btn-primary">Add a Product</a>
+                <a href="/deleteEntry" class="btn btn-primary">Delete a Product</a>
+                <a href="/adminPostNewUser" class="btn btn-primary">Add User</a>
+                <a href="/deleteUser" class="btn btn-primary">Delete User</a>
+                <a href="/logout" class="btn btn-primary">Sign Out</a>
+            </div>
+        {{/user}}
+    </div>
+    
+    <!-- Footer section with copyright information -->
+    <footer class="footer">
+        <p>&copy; 2024 Charity Hospice. All rights reserved.</p>
+    </footer>
+
+    <!-- Include Bootstrap JS and dependencies for functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <!-- Link to Bootstrap CSS for responsive and styled components -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha384-xN1VxmgCzR3Y2QoRbTVRGQmAjVu1c6X16T3y2zTjo5RUzLN47XAk1GpSwhMb7zjL" crossorigin="anonymous">
+
+    <!-- Page title -->
+    <title>Charity Hospice</title>
+
+    <!-- Internal CSS for custom styles -->
+    <style>
+        /* General body styling */
+        body {
+            font-family: Arial, sans-serif; /* Set the font for the page */
+            background-color: #AEEEEE; /* Light teal background color */
+            color: #333; /* Dark gray text color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex; /* Use flexbox layout */
+            flex-direction: column; /* Stack child elements vertically */
+            min-height: 100vh; /* Ensure the body covers the entire viewport height */
+        }
+
+        /* Styling for the main content container */
+        .container {
+            max-width: 800px; /* Maximum width of the container */
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 20px; /* Padding inside the container */
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque white background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for a subtle 3D effect */
+            flex: 1; /* Allow container to fill available vertical space */
+            text-align: center; /* Center-align text and content within the container */
+        }
+
+        /* Styling for the header section */
+        .header {
+            background-color: #489b94; /* Teal background color */
+            color: #fff; /* White text color */
+            padding: 20px; /* Padding around header content */
+            font-size: 2rem; /* Larger font size for header text */
+            font-weight: bold; /* Bold text */
+            border-top-left-radius: 10px; /* Rounded top-left corner */
+            border-top-right-radius: 10px; /* Rounded top-right corner */
+            margin-bottom: 20px; /* Space below the header */
+            display: flex; /* Use flexbox for layout within header */
+            justify-content: space-between; /* Distribute space between items */
+            align-items: center; /* Align items vertically in the center */
+        }
+
+        /* Styling for the logo image in the header */
+        .header img {
+            width: 80px; /* Width of the logo image */
+            height: auto; /* Maintain aspect ratio */
+            margin-right: 10px; /* Space between image and text */
+        }
+
+        /* Styling for the header title */
+        .header h1 {
+            margin: 0; /* Remove default margin */
+            flex: 1; /* Allow title to expand and center itself */
+            text-align: center; /* Center the text */
+        }
+
+        /* Styling for the sign-out link */
+        .sign-out {
+            font-size: 14px; /* Font size for the sign-out button */
+            padding: 5px 10px; /* Padding inside the button */
+            border: none; /* Remove default border */
+            background-color: #007bff; /* Blue background color */
+            color: #fff; /* White text color */
+            border-radius: 4px; /* Rounded corners */
+            text-decoration: none; /* Remove underline from the link */
+            margin-left: auto; /* Push the sign-out link to the right */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        /* Hover effect for the sign-out button */
+        .sign-out:hover {
+            background-color: #0056b3; /* Darker blue background on hover */
+        }
+
+        /* Styling for the footer section */
+        .footer {
+            background-color: #489b94; /* Teal background color */
+            color: #fff; /* White text color */
+            text-align: center; /* Center-align text */
+            padding: 20px; /* Padding inside the footer */
+            border-bottom-left-radius: 10px; /* Rounded bottom-left corner */
+            border-bottom-right-radius: 10px; /* Rounded bottom-right corner */
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+
+        /* Card styling for displaying entries */
+        .card-columns {
+            column-count: 1; /* One column layout for cards */
+        }
+
+        .card {
+            margin-bottom: 20px; /* Space below each card */
+            border: 1px solid #ddd; /* Light border around cards */
+            border-radius: 10px; /* Rounded corners for cards */
+        }
+
+        .card-title {
+            font-size: 1.5rem; /* Larger font size for card titles */
+        }
+
+        .card-footer {
+            font-size: 0.875rem; /* Smaller font size for card footers */
+            background-color: #f8f9fa; /* Light background color for footer */
+            border-top: 1px solid #ddd; /* Border on top of card footer */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section with logo, title, and sign-out link -->
+    <div class="header">
+        <img src="/charityLogo.png" alt="Logo"> <!-- Correct path to the image -->
+        <h1>Products</h1> <!-- Page title -->
+        <a href="/logout" class="sign-out">Sign out</a> <!-- Sign-out link -->
+    </div>
+
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Conditional section for displaying user-related content (e.g., buttons or messages) -->
+        {{#user}}
+            <div class="text-right mb-3">
+                <!-- Button or content for users, such as adding new entries (currently empty) -->
+            </div>
+        {{/user}}
+
+        <!-- Display a list of entries in a card layout -->
+        <div class="card-columns">
+            {{#entries}}
+                <div class="card">
+                    <h3 class="card-title">{{subject}}</h3> <!-- Title of the entry -->
+                    <div class="card-body">
+                        <p class="card-text">{{contents}}</p> <!-- Content of the entry -->
+                    </div>
+                    <div class="card-footer">
+                        Written by <a href="/posts/{{author}}">{{author}}</a>, on {{published}} <!-- Author and publication date -->
+                    </div>
+                </div>
+            {{/entries}}
+
+            <!-- Message displayed if there are no entries -->
+            {{^entries}}
+                <div class="card">
+                    <h3 class="card-title">No entries yet.</h3> <!-- Placeholder text for no entries -->
+                </div>
+            {{/entries}}
+        </div>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <p>&copy; 2024 Food Waste App. All rights reserved.</p> <!-- Footer text -->
+    </footer>
+
+    <!-- Bootstrap JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-oP16R7oHedM6DjOnwgh5b5XwqCjR46Q0MOyM98cS9DDgT86rZ/27dX0Rz1i5BRdD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oB4n8k6qKZb6x1sLwITh4IMbAXM5DdJvO4Pt/k6bUomNdllbU8KtQJ7H13c/kFSd" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha384-4bozOqVShj/iS/7j/fSuF5i7eUmGC7Vw6de8s62VeS4p+T4e27Psd8A3/sR/jxmt" crossorigin="anonymous"></script>
+</body>
+</html>

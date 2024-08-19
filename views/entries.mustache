@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Page title for the browser tab -->
+    <title>Available Products</title>
+    
+    <style>
+        /* Base styles for the body element */
+        body {
+            font-family: Arial, sans-serif; /* Sets font type to Arial or sans-serif */
+            background-color: #F0F4F8; /* Light grey background color */
+            color: #333; /* Dark text color */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+            display: flex; /* Uses Flexbox layout */
+            flex-direction: column; /* Stacks content vertically */
+            min-height: 100vh; /* Ensures body covers the full viewport height */
+        }
+        
+        /* Styles for the container holding the main content */
+        .container {
+            max-width: 800px; /* Limits the container width */
+            margin: 0 auto; /* Centers the container horizontally */
+            padding: 20px; /* Adds padding inside the container */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 10px; /* Rounds the corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            flex: 1; /* Allows container to expand and fill available space */
+            text-align: center; /* Centers text horizontally within the container */
+        }
+        
+        /* Styles for the header section */
+        .header {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Centers text horizontally */
+            padding: 20px; /* Adds padding inside the header */
+            font-size: 2rem; /* Sets font size for header text */
+            font-weight: bold; /* Makes the header text bold */
+            border-top-left-radius: 10px; /* Rounds top-left corner */
+            border-top-right-radius: 10px; /* Rounds top-right corner */
+            display: flex; /* Uses Flexbox layout */
+            justify-content: space-between; /* Distributes space between header items */
+            align-items: center; /* Aligns items vertically centered */
+        }
+        
+        /* Styles for the logo image in the header */
+        .header img {
+            width: 80px; /* Sets the image width */
+            height: auto; /* Maintains the aspect ratio of the image */
+        }
+        
+        /* Styles for the header heading */
+        .header h1 {
+            margin: 0; /* Removes default margin */
+            flex: 1; /* Allows the heading to take up remaining space */
+            text-align: center; /* Centers text horizontally */
+        }
+        
+        /* Styles for the logout link button in the header */
+        .sign-out {
+            font-size: 14px; /* Sets font size */
+            padding: 5px 10px; /* Adds padding */
+            border: none; /* Removes border */
+            background-color: #007bff; /* Blue background color */
+            color: #fff; /* White text color */
+            border-radius: 4px; /* Rounds corners of the button */
+            text-decoration: none; /* Removes underline from the link */
+        }
+        
+        /* Styles for the write entry button */
+        .btn-write-entry {
+            margin-right: 10px; /* Adds space to the right of the button */
+        }
+        
+        /* Styles for card elements */
+        .card {
+            margin-bottom: 20px; /* Adds space below each card */
+            border-radius: 10px; /* Rounds corners of cards */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+            text-align: left; /* Aligns text to the left */
+        }
+        
+        /* Styles for card headers */
+        .card-header {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            font-weight: bold; /* Makes the header text bold */
+        }
+        
+        /* Styles for card footers */
+        .card-footer {
+            background-color: #ECF0F1; /* Light grey background color */
+            color: #2C3E50; /* Dark blue text color */
+        }
+        
+        /* Styles for the footer section */
+        .footer {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Centers text horizontally */
+            padding: 20px; /* Adds padding inside the footer */
+            border-bottom-left-radius: 10px; /* Rounds bottom-left corner */
+            border-bottom-right-radius: 10px; /* Rounds bottom-right corner */
+            margin-top: auto; /* Pushes the footer to the bottom of the page */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section with logo, page title, and sign-out button -->
+    <div class="header">
+        <img src="/charityLogo.png" alt="Logo"> <!-- Correct path to the image -->
+        <h1>Charity Hospice: Available Products</h1> <!-- Page heading -->
+        <a href="/logout" class="sign-out">Sign out</a> <!-- Sign-out button -->
+    </div>
+    
+    <!-- Main content area with guestbook entries -->
+    <div class="container">
+        <!-- Conditional display based on user authentication -->
+        {{#user}}
+        <div class="text-right mb-3">
+            <!-- Button to write a new guestbook entry -->
+            <a href="/new" class="btn btn-primary btn-write-entry">Add a product</a>
+        </div>
+        {{/user}}
+        
+        <!-- Display guestbook entries -->
+        <div class="card-columns">
+            {{#entries}}
+            <div class="card">
+                <div class="card-header">
+                    {{itemName}} <!-- Title of the entry -->
+                </div>
+                <div class="card-body">
+                    <p class="card-text"><strong>Description:</strong> {{contents}}</p> <!-- Content of the entry -->
+                    <p class="card-text"><strong>Price:</strong> ${{price}}</p> <!-- Price of the product -->
+                </div>
+                <div class="card-footer">
+                    <!-- Footer of the card with author and publication date -->
+                    Written by <a href="/posts/{{author}}">{{author}}</a>, on {{published}}
+                </div>
+            </div>
+            {{/entries}}
+            
+            <!-- Display when no entries are available -->
+            {{^entries}}
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">No entries yet.</h3> <!-- Message for no entries -->
+                </div>
+            </div>
+            {{/entries}}
+        </div>
+    </div>
+    
+    <!-- Footer section -->
+    <footer class="footer">
+        <p>&copy; 2024 Charity Hospice. All rights reserved.</p>
+    </footer>
+    
+    <!-- Script to handle date expiration checks -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Select all card footers
+            var cardFooters = document.querySelectorAll(".card-footer");
+
+            // Iterate over each card footer
+            cardFooters.forEach(function(cardFooter) {
+                var dateString = cardFooter.textContent.split(", on ")[1];
+                var entryDate = new Date(dateString);
+                var currentDate = new Date();
+
+                // Check if the entry date has expired
+                if (currentDate > entryDate) {
+                    cardFooter.textContent += " - Expired"; // Append "Expired" if true
+                }
+            });
+
+            // Get expiration date input field
+            var expirationDateInput = document.getElementById("expirationDate");
+
+            // Add change event listener to the input field
+            if (expirationDateInput) {
+                expirationDateInput.addEventListener("change", function() {
+                    var expirationDateString = this.value;
+                    var expirationDate = new Date(expirationDateString);
+                    var currentDate = new Date();
+
+                    // Alert if expiration date has already passed
+                    if (currentDate > expirationDate) {
+                        alert("Expiration date has already passed. Please choose a valid expiration date.");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

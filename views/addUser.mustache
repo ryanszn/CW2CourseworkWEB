@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Title of the page -->
+    <title>Admin Dashboard</title>
+    
+    <style>
+        /* Base styles for the body element */
+        body {
+            font-family: Arial, sans-serif; /* Sets the font for the page */
+            background-color: #F0F4F8; /* Light grey background color */
+            color: #333; /* Dark text color */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+            display: flex; /* Flexbox layout */
+            flex-direction: column; /* Stacks content vertically */
+            min-height: 100vh; /* Ensures the body covers the full viewport height */
+        }
+        
+        /* Styles for the container holding the main content */
+        .container {
+            max-width: 800px; /* Sets a maximum width for the container */
+            margin: 0 auto; /* Centers the container horizontally */
+            padding: 20px; /* Adds padding inside the container */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 10px; /* Rounds the corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            flex: 1; /* Allows the container to grow and fill available space */
+            text-align: center; /* Centers text inside the container */
+        }
+        
+        /* Styles for the navigation bar */
+        .navbar {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+        }
+        
+        /* Styles for the brand section in the navigation bar */
+        .navbar-brand {
+            font-size: 2rem; /* Larger font size for the brand */
+            font-weight: bold; /* Bold text */
+            display: flex; /* Uses flexbox for alignment */
+            justify-content: center; /* Centers content horizontally */
+            align-items: center; /* Centers content vertically */
+        }
+        
+        /* Styles for the brand logo image */
+        .navbar-brand img {
+            width: 50px; /* Sets a fixed width for the logo */
+            height: auto; /* Maintains aspect ratio */
+            margin-right: 10px; /* Adds space between logo and text */
+        }
+        
+        /* Styles for the navbar toggler button */
+        .navbar-toggler {
+            border: none; /* Removes default border */
+            outline: none; /* Removes focus outline */
+        }
+        
+        /* Styles for the navbar toggler icon */
+        .navbar-toggler-icon {
+            background-image: url('nav.png'); /* Uses a custom background image */
+            width: 30px; /* Sets the width of the icon */
+            height: 30px; /* Sets the height of the icon */
+            background-size: cover; /* Ensures the background image covers the icon */
+        }
+        
+        /* Styles for the navigation links */
+        .navbar-nav {
+            margin-left: auto; /* Aligns links to the right */
+        }
+        
+        .navbar-nav .nav-item {
+            margin-left: 10px; /* Adds space between navigation items */
+        }
+        
+        .navbar-nav .nav-link {
+            color: #ECF0F1; /* Sets text color to light grey */
+        }
+        
+        /* Styles for the main heading */
+        h1 {
+            margin-bottom: 30px; /* Adds space below the heading */
+            color: #2C3E50; /* Sets text color to dark blue */
+            text-align: center; /* Centers the heading text */
+        }
+        
+        /* Styles for the card component */
+        .card {
+            margin-bottom: 20px; /* Adds space below the card */
+            border: 1px solid rgba(0, 0, 0, 0.125); /* Light border around the card */
+            border-radius: 0.25rem; /* Rounds the card corners */
+        }
+        
+        /* Styles for the card body */
+        .card-body {
+            padding: 20px; /* Adds padding inside the card body */
+        }
+        
+        /* Styles for form groups within the card */
+        .form-group {
+            margin-bottom: 20px; /* Adds space below each form group */
+            text-align: left; /* Aligns text to the left */
+        }
+        
+        /* Styles for form controls */
+        .form-control {
+            border-radius: 4px; /* Rounds the corners of input fields */
+        }
+        
+        /* Styles for primary buttons */
+        .btn-primary {
+            width: 100%; /* Full width buttons */
+            border-radius: 4px; /* Rounded corners */
+            background-color: #3498DB; /* Charity Hospice button color */
+            border: none; /* Remove border */
+        }
+
+        /* Styling for primary button hover state */
+        .btn-primary:hover {
+            background-color: #2980B9; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation bar with branding and links -->
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#">
+            <!-- Logo image -->
+            <img src="/charityLogo.png" alt="Charity Hospice Logo"> <!-- Correct path to the image --> 
+            <!-- Page title -->
+            <span class="mx-auto">Admin Dashboard</span>
+        </a>
+        <!-- Button for collapsing the navbar on smaller screens -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collapsible navbar links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <!-- Navigation items -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin">View Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/entries">View Posts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/new">Add a Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/deleteUser">Delete User</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Sign Out</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main content area -->
+    <div class="container">
+        <h1>Add New User</h1>
+        <div class="card">
+            <div class="card-body">
+                <!-- Form for adding a new user -->
+                <form method="post" action="/adminPostNewUser">
+                    <div class="form-group">
+                        <!-- Placeholder for error messages related to username -->
+                        {{user-name-error}}
+                        <label for="username">User Name</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Enter user name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <select class="form-control" name="role" id="role" required>
+                            <!-- Options for user roles -->
+                            <option value="normalUser">User</option>
+                            <option value="admin">Admin</option>                            
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password (8 characters minimum)</label>
+                        <input type="password" class="form-control" id="password" name="pass" placeholder="Enter password" minlength="8" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS and dependencies for functionality -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

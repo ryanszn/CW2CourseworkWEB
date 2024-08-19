@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding for the document -->
+    <meta charset="utf-8">
+    
+    <!-- Viewport settings for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Title of the document, dynamically set using a templating engine -->
+    <title>{{title}}</title>
+
+    <!-- Meta description for SEO -->
+    <meta name="description" content="Charity Hospice - Providing compassionate care for those in need.">
+
+    <!-- Link to Bootstrap CSS for styling -->
+    <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-4WJtWzxKjWUvJgGgK1rAzM2P+vS1eLMK0C1tWQLXg2u7gO7d7h8z5lY2HR8+6dFjJ" 
+        crossorigin="anonymous"
+    >
+
+    <!-- Additional custom CSS styles -->
+    <style>
+        .header {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Centers text horizontally */
+            padding: 20px; /* Adds padding inside the header */
+            font-size: 2rem; /* Increases font size */
+            font-weight: bold; /* Makes the text bold */
+            border-top-left-radius: 10px; /* Rounds the top-left corner */
+            border-top-right-radius: 10px; /* Rounds the top-right corner */
+            position: relative; /* Positions child elements relative to this header */
+            display: flex; /* Flexbox layout */
+            justify-content: space-between; /* Distributes space between items */
+            align-items: center; /* Aligns items vertically in the center */
+        }
+
+        .header img {
+            width: 80px; /* Sets the image width */
+            height: auto; /* Maintains the aspect ratio */
+        }
+
+        .logo {
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Aligns items vertically */
+            text-decoration: none; /* Removes underline from links */
+            color: inherit; /* Inherits color from parent */
+        }
+
+        .footer {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Centers text horizontally */
+            padding: 20px; /* Adds padding inside the footer */
+            border-bottom-left-radius: 10px; /* Rounds bottom-left corner */
+            border-bottom-right-radius: 10px; /* Rounds bottom-right corner */
+            margin-top: auto; /* Pushes the footer to the bottom of the page */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header section with logo and page title -->
+<header class="header">
+    <a href="/" class="logo">
+        <img src="/charityLogo.png" alt="Logo"> <!-- Correct path to the image -->
+    </a>
+    <h1>Charity Hospice</h1>
+    <!-- Navigation items or buttons can be added here -->
+</header>
+
+<!-- Main content will be injected here -->
+{{{body}}}
+
+<!-- Footer section -->
+<footer class="footer">
+    <p>&copy; {{year}} Charity Hospice. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JavaScript dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/1h8WTiZxT3N5lj85sZ46evczt2I2gA8ZqYyD2snP" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-2E6IMuXU7Wzxj8x3yt6ExegVPt2jGg9I4U2sIZe0Wz3j46dj6M6CVT5C5If6I+PO" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqChcc+UEeN1G6Xq/3pG2bW5mzzPJJl71+PV1T5V+S3dP/Yvdw7" crossorigin="anonymous"></script>
+</body>
+</html>

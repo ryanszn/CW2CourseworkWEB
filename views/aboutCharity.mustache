@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Title of the webpage displayed on the browser tab -->
+    <title>Charity Hospice</title>
+    
+    <style>
+        /* Reset CSS: Remove default margin, padding, and set box-sizing to border-box for all elements */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styles: Set the font, background color, and layout for the entire page */
+        body {
+            font-family: 'Arial', sans-serif; /* Font style for the page */
+            background-color: #F0F4F8; /* Light grey background color */
+            color: #333; /* Dark grey text color */
+            line-height: 1.6; /* Line height for readability */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange children in a column */
+            min-height: 100vh; /* Ensure the body covers the full viewport height */
+            background-size: cover; /* Cover the background */
+            background-position: center; /* Center the background image */
+        }
+
+        /* Container Styles: Main content area with flexible layout and spacing */
+        .container {
+            max-width: 1200px; /* Maximum width of the container */
+            width: 100%; /* Full width */
+            margin: auto; /* Center the container horizontally */
+            padding: 20px; /* Padding inside the container */
+            flex: 1; /* Allow the container to fill available vertical space */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out child elements */
+            gap: 20px; /* Gap between main and aside sections */
+        }
+
+        /* Header Styles: Styles for the top navigation bar */
+        .header {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            padding: 15px 20px; /* Padding inside the header */
+            font-size: 1.5rem; /* Font size for header text */
+            font-weight: bold; /* Bold text */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space out header elements */
+            align-items: center; /* Align items center vertically */
+            border-bottom: 2px solid #34495E; /* Bottom border for header */
+        }
+
+        .header h1 {
+            color: #ECF0F1; /* Light grey color to contrast with the dark background */
+            font-size: 2.5rem; /* Adjust the font size as needed */
+            margin-bottom: 10px; /* Add some space below the heading */
+        }
+
+        /* Styles for the logo image in the header */
+        .header img {
+            width: 60px; /* Width of the logo image */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Logo styling: Flex container for the logo with no text decoration */
+        .logo {
+            display: flex; /* Flexbox for logo alignment */
+            align-items: center; /* Center align items vertically */
+            text-decoration: none; /* Remove underline from links */
+            color: inherit; /* Inherit color from parent */
+        }
+
+        /* Styles for the logo image inside the logo link */
+        .logo img {
+            width: 90px; /* Width of the logo image */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Contact button styling */
+        .contact-btn {
+            padding: 10px 20px; /* Padding inside the button */
+            background-color: #E74C3C; /* Red background color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            color: #fff; /* White text color */
+            text-decoration: none; /* Remove underline from links */
+            font-size: 1rem; /* Font size for button text */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+
+        /* Hover effect for the contact button */
+        .contact-btn:hover {
+            background-color: #C0392B; /* Darker red on hover */
+        }
+
+        /* Main section styling: Container for main content */
+        main {
+            padding: 30px; /* Padding inside the main section */
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 10px; /* Rounded corners */
+            margin-top: 20px; /* Margin above the main section */
+            min-height: 400px; /* Minimum height of the main section */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange children in a column */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Small heading styling inside the main section */
+        .main-heading {
+            color: #2C3E50; /* Dark blue text color */
+            font-size: 1.4rem; /* Font size for small heading */
+            margin-bottom: 15px; /* Margin below heading */
+        }
+
+        /* Paragraph styling inside the main section */
+        main p {
+            color: #555; /* Slightly lighter grey text color */
+            font-size: 1.2rem; /* Font size for paragraph text */
+            line-height: 1.8; /* Line height for readability */
+            text-align: center; /* Center-align text */
+            margin-bottom: 20px; /* Margin below paragraphs */
+        }
+
+        /* Additional section styling */
+        .about {
+            padding: 20px; /* Padding inside the about section */
+            background-color: #FFF; /* White background color */
+            border-radius: 10px; /* Rounded corners */
+            margin-top: 20px; /* Margin above the about section */
+            text-align: center; /* Center-align text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Google Map Embed */
+        .map-embed {
+            width: 100%; /* Full width of the parent container */
+            height: 400px; /* Height of the map */
+            border: none; /* Remove border */
+            border-radius: 10px; /* Rounded corners */
+            margin-top: 20px; /* Margin above the map */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Right box styling: Sidebar or additional section */
+        .right-box {
+            background-color: #FFF; /* White background color */
+            padding: 20px; /* Padding inside the box */
+            width: 300px; /* Fixed width */
+            border-radius: 10px; /* Rounded corners */
+            text-align: center; /* Center-align text */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Image styling for donation image */
+        .donate-image {
+            width: 180px; /* Width of the donation image */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 10px; /* Margin above the image */
+        }
+
+        /* Button styling */
+        .btn {
+            display: block; /* Block-level button */
+            margin: 10px auto; /* Center-align buttons with margins */
+            padding: 12px 24px; /* Padding inside the button */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            text-decoration: none; /* Remove underline from links */
+            color: #fff; /* White text color */
+            width: 90%; /* Fixed width */
+            transition: opacity 0.3s ease; /* Smooth opacity transition */
+        }
+
+        /* Primary button styling */
+        .btn-primary {
+            background-color: #3498DB; /* Blue background color */
+        }
+
+        /* Secondary button styling */
+        .btn-secondary {
+            background-color: #95A5A6; /* Grey background color */
+        }
+
+        /* Hover effect for buttons */
+        .btn:hover {
+            opacity: 0.9; /* Slightly transparent on hover */
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #2C3E50; /* Dark blue background color */
+            color: #ECF0F1; /* Light grey text color */
+            text-align: center; /* Center-align text */
+            padding: 15px; /* Padding inside the footer */
+            border-top-left-radius: 10px; /* Rounded top-left corner */
+            border-top-right-radius: 10px; /* Rounded top-right corner */
+            margin-top: auto; /* Push footer to the bottom */
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        /* Heading styling */
+        h2 {
+            color: #2C3E50; /* Dark blue text color */
+        }
+
+        h1 {
+            color: #2C3E50; /* Dark blue text color */
+            text-align: center; /* Center-align heading text */
+            margin-bottom: 20px; /* Margin below heading */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section with navigation and logo -->
+    <header class="header">
+        <a href="#" class="logo">
+            <img src="/charityLogo.png" alt="Logo"> <!-- Correct path to the image -->
+        </a>
+        <h1>Glasgow Charity Hospice</h1>
+        <a href="/contact" class="contact-btn">Contact Us</a>
+    </header>
+
+    <!-- Main content container -->
+    <div class="container">
+        <main>
+            <!-- Small heading above the main content -->
+            <h2 class="main-heading">Charity Hospice</h2>
+            
+            <!-- Main content about the site -->
+            <p>Welcome to the Charity Hospice..</p>
+            <p>We are committed to providing exceptional care and support to individuals and families in need. Our focus is on delivering compassionate, dependable, and personalized services to enhance the well-being of those we serve.</p>
+            <p>From our humble beginnings, our dedication and passion have driven us to develop a robust network of resources and services. Through tireless effort and a commitment to excellence, we have built a thriving community of support and care.</p>
+            <p>We invite you to explore our website and learn more about our mission and services. If you have any questions, need assistance, or would like to get involved, please feel free to reach out to us. Your support and engagement are vital to our continued success and impact.</p>
+
+            <!-- Section for Google Map Embed -->
+            <div class="about">
+                <h2>Find Us</h2>
+                <iframe class="map-embed" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2239.3404166995674!2d-4.2555169223776455!3d55.856759973122934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4888469f2dbc3a77%3A0x29ea5791dadc9e2c!2sSt.%20Enoch%20Centre!5e0!3m2!1sen!2suk!4v1724067515220!5m2!1sen!2suk" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </main>
+
+        <aside class="right-box">
+            <h2>Get Started</h2>
+            <a href="http://localhost:9000/login" class="btn btn-primary">Login</a>
+            <a href="http://localhost:9000/register" class="btn btn-secondary">Register</a>
+            <img src="/paypal.png" alt="Donate Image" class="donate-image"> <!-- Updated path to the image -->
+            <a href="https://www.paypal.com/uk/digital-wallet" class="btn btn-primary" style="margin-top: 10px;">Donate Now</a>
+        </aside>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Charity Hospice. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

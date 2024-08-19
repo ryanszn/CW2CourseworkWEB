@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <title>Delete Products</title>
+    
+    <style>
+        /* Base styles for the body element */
+        body {
+            font-family: Arial, sans-serif; /* Sets font type */
+            background-color: #003366; /* Dark blue background color */
+            color: #fff; /* White text color */
+            margin: 0; /* Removes default margin */
+            padding: 0; /* Removes default padding */
+            display: flex; /* Flexbox layout */
+            flex-direction: column; /* Stacks content vertically */
+            min-height: 100vh; /* Ensures the body covers the entire viewport height */
+        }
+        
+        /* Styles for the container holding the main content */
+        .container {
+            max-width: 800px; /* Limits the container width */
+            margin: 0 auto; /* Centers the container horizontally */
+            padding: 20px; /* Adds padding inside the container */
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+            border-radius: 10px; /* Rounds the corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+            flex: 1; /* Allows the container to expand and fill available space */
+        }
+        
+        /* Styles for the header section */
+        .header {
+            background-color: #003366; /* Dark blue background color */
+            color: #fff; /* White text color */
+            text-align: center; /* Centers text horizontally */
+            padding: 20px; /* Adds padding inside the header */
+            font-size: 2.5rem; /* Increases font size */
+            font-weight: bold; /* Makes the text bold */
+            border-top-left-radius: 10px; /* Rounds the top-left corner */
+            border-top-right-radius: 10px; /* Rounds the top-right corner */
+        }
+        
+        /* Styles for the logo image in the header */
+        .header img {
+            width: 80px; /* Sets the image width */
+            height: auto; /* Maintains the aspect ratio */
+        }
+        
+        /* Styles for the header heading */
+        .header h1 {
+            margin: 0; /* Removes default margin */
+        }
+        
+        /* Styles for form groups */
+        .form-group {
+            margin-bottom: 20px; /* Adds space below each form group */
+        }
+        
+        /* Styles for delete buttons */
+        .btn-delete {
+            margin-bottom: 10px; /* Adds space below each delete button */
+            width: 100%; /* Makes the delete button full-width */
+            border-radius: 4px; /* Rounds the corners */
+            background-color: #cc0000; /* Red background color for delete button */
+            color: #fff; /* White text color */
+            border: none; /* Removes border */
+        }
+        
+        /* Styles for delete button hover effect */
+        .btn-delete:hover {
+            background-color: #990000; /* Darker red background on hover */
+        }
+        
+        /* Styles for the footer section */
+        .footer {
+            background-color: #003366; /* Dark blue background color */
+            color: #fff; /* White text color */
+            text-align: center; /* Centers text horizontally */
+            padding: 20px; /* Adds padding inside the footer */
+            border-bottom-left-radius: 10px; /* Rounds the bottom-left corner */
+            border-bottom-right-radius: 10px; /* Rounds the bottom-right corner */
+            margin-top: auto; /* Pushes the footer to the bottom of the page */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header section with logo and page title -->
+    <div class="header">
+        <img src="/charityLogo.png" alt="Logo"> <!-- Correct path to the image -->
+        <h1>Delete Products</h1> <!-- Page heading -->
+    </div>
+    
+    <!-- Main content area with a form for deleting products -->
+    <div class="container">
+        <form method="post" action="/deleteEntry">
+            <!-- CSRF token for security -->
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            
+            {{#entries}} <!-- Start of loop to iterate over product entries -->
+            <div class="form-group">
+                <!-- Submit button for each product entry to delete it -->
+                <button type="submit" class="btn btn-delete" name="entryId" value="{{_id}}">
+                    {{subject}}
+                </button>
+            </div>
+            {{/entries}} <!-- End of loop -->
+        </form>
+    </div>
+    
+    <!-- Footer section -->
+    <footer class="footer">
+        <p>&copy; 2024 Food Waste App. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha384-xN1VxmgCzR3Y2QoRbTVRGQmAjVu1c6X16T3y2zTjo5RUzLN47XAk1GpSwhMb7zjL" crossorigin="anonymous">
+
+    <!-- Internal CSS for custom styles -->
+    <style>
+        /* Custom styles for the page */
+        body {
+            font-family: Arial, sans-serif; /* Use Arial font or a generic sans-serif font */
+            background-color: #f8f9fa; /* Light gray background color */
+            color: #333; /* Dark gray text color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Arrange items in a column */
+            min-height: 100vh; /* Ensure the body covers the full viewport height */
+        }
+        .container {
+            max-width: 800px; /* Limit the maximum width of the container */
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 20px; /* Add padding inside the container */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the container */
+            flex: 1; /* Allow the container to fill available vertical space */
+            text-align: center; /* Center-align the text inside the container */
+        }
+        .text-right {
+            text-align: right; /* Align text to the right */
+            margin-bottom: 1em; /* Add space below the buttons */
+        }
+        .btn {
+            margin-right: 10px; /* Add space between buttons */
+        }
+        /* Custom styles for notification messages */
+        .notification {
+            margin-top: 20px; /* Add space above the notification */
+            padding: 10px; /* Add padding inside the notification */
+            border-radius: 5px; /* Rounded corners for the notification */
+            background-color: #d4edda; /* Light green background for success messages */
+            color: #155724; /* Dark green text color for success messages */
+            border: 1px solid #c3e6cb; /* Border color matching the background */
+        }
+    </style>
+</head>
+<body>
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Navigation and action buttons -->
+        <div class="text-right">
+            <a href="/admin" class="btn btn-primary" role="button">View users</a>
+            <a href="/entries" class="btn btn-primary" role="button">View posts</a>
+            <a href="/new" class="btn btn-primary" role="button">Add a product</a>
+            <a href="/logout" class="btn btn-primary" role="button">Sign out</a>
+        </div>
+
+        <!-- Notification message -->
+        <div class="notification" role="alert">User added</div>
+    </div>
+
+    <!-- Bootstrap JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-oP16R7oHedM6DjOnwgh5b5XwqCjR46Q0MOyM98cS9DDgT86rZ/27dX0Rz1i5BRdD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oB4n8k6qKZb6x1sLwITh4IMbAXM5DdJvO4Pt/k6bUomNdllbU8KtQJ7H13c/kFSd" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha384-4bozOqVShj/iS/7j/fSuF5i7eUmGC7Vw6de8s62VeS4p+T4e27Psd8A3/sR/jxmt" crossorigin="anonymous"></script>
+</body>
+</html>

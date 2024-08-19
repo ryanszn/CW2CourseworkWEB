@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Character encoding for the document -->
+    <meta charset="utf-8">
+    
+    <!-- Viewport settings for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link to Bootstrap CSS for styling, with integrity check and crossorigin attributes -->
+    <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+        integrity="sha384-8O8Y6B95X8m3BF4O1iO4G2HE5J+SRQUJInpxKAVkT7Odj5mLmk58A6Cp72w2Bh/j" 
+        crossorigin="anonymous"
+    >
+
+    <!-- Internal CSS for custom styles -->
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif; /* Font type for the page */
+            background-color: #f8f9fa; /* Light gray background color */
+            color: #333; /* Dark gray text color */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex; /* Use flexbox layout */
+            flex-direction: column; /* Stack child elements vertically */
+            min-height: 100vh; /* Ensure the body covers the full viewport height */
+        }
+
+        /* Container styling */
+        .container {
+            max-width: 600px; /* Increased maximum width of the container */
+            margin: 50px auto; /* Center container with margin */
+            padding: 20px; /* Padding inside the container */
+            background-color: #ffffff; /* White background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+            flex: 1; /* Allow container to fill available vertical space */
+        }
+
+        /* Header styling */
+        .header {
+            background-color: #003d79; /* Dark blue color for header */
+            color: #fff; /* White text color */
+            text-align: center; /* Center text horizontally */
+            padding: 20px; /* Padding around header text */
+            font-size: 1.5rem; /* Adjusted font size */
+            font-weight: bold; /* Bold text */
+            border-top-left-radius: 10px; /* Rounded top-left corner */
+            border-top-right-radius: 10px; /* Rounded top-right corner */
+            position: relative; /* Relative positioning for child elements */
+            display: flex; /* Use flexbox layout */
+            justify-content: center; /* Center child elements horizontally */
+            align-items: center; /* Center child elements vertically */
+        }
+
+        /* Header image styling */
+        .header img {
+            position: absolute; /* Absolute positioning within header */
+            left: 10px; /* Adjust left position */
+            width: 60px; /* Adjusted width of image */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Header text styling */
+        .header h2 {
+            margin: 0; /* Remove default margin */
+            flex: 1; /* Allow the heading to take up remaining space */
+        }
+
+        /* Sign out button styling */
+        .sign-out {
+            position: absolute; /* Absolute positioning within header */
+            top: 20px; /* Position from the top */
+            right: 10px; /* Position from the right */
+            font-size: 14px; /* Smaller font size */
+            padding: 5px 10px; /* Padding around text */
+            border: none; /* Remove default border */
+            background-color: #0056b3; /* Dark blue background color */
+            color: #fff; /* White text color */
+            border-radius: 4px; /* Rounded corners */
+            text-decoration: none; /* Remove underline from link */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        /* Sign out button hover effect */
+        .sign-out:hover {
+            background-color: #003d79; /* Even darker blue background on hover */
+        }
+
+        /* Form group styling */
+        .form-group {
+            margin-bottom: 20px; /* Space below each form group */
+        }
+
+        /* Form control styling */
+        .form-control {
+            border-radius: 4px; /* Rounded corners for form elements */
+        }
+
+        /* Primary button styling */
+        .btn-primary {
+            width: 100%; /* Full width button */
+            border-radius: 4px; /* Rounded corners */
+            background-color: #007bff; /* Blue background color */
+            border: none; /* Remove default border */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        /* Primary button hover effect */
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue background on hover */
+        }
+
+        /* Footer styling */
+        .footer {
+            background-color: #003d79; /* Dark blue color for footer */
+            color: #fff; /* White text color */
+            text-align: center; /* Center text horizontally */
+            padding: 20px; /* Padding inside footer */
+            border-bottom-left-radius: 10px; /* Rounded bottom-left corner */
+            border-bottom-right-radius: 10px; /* Rounded bottom-right corner */
+            margin-top: auto; /* Push footer to the bottom */
+        }
+    </style>
+</head>
+<body>
+    <!-- Header section with logo, title, and sign-out link -->
+    <div class="header">
+        <img src="/charityLogo.png" alt="Logo"> <!-- Correct path to the image -->
+        <h2>New Entry: Product</h2> <!-- Updated header title -->
+        <a href="/logout" class="sign-out">Sign out</a> <!-- Sign-out link -->
+    </div>
+
+    <!-- Main content container -->
+    <div class="container">
+        <!-- Form for creating a new entry -->
+        <form method="post" role="form" action="/new">
+            <!-- Form group for author name -->
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" id="author" name="author" placeholder="Your name" required>
+            </div>
+
+            <!-- Form group for item name -->
+            <div class="form-group">
+                <label for="itemName">Item Name</label>
+                <input type="text" class="form-control" id="itemName" name="subject" placeholder="Enter item name" required>
+            </div>
+
+            <!-- Form group for contents -->
+            <div class="form-group">
+                <label for="contents">Contents</label>
+                <textarea class="form-control" id="contents" name="contents" rows="4" placeholder="Enter contents" required></textarea>
+            </div>
+            
+            <!-- Form group for price -->
+            <div class="form-group">
+                <label for="price">Price</label>
+                <input type="number" step="0.01" class="form-control" id="price" name="price" placeholder="Enter price" required>
+            </div>
+
+            <!-- Submit button -->
+            <div class="form-group">
+                <input type="submit" value="Post entry" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer section -->
+    <footer class="footer">
+        <p>&copy; 2024 Food Waste App. All rights reserved.</p> <!-- Footer text -->
+    </footer>
+
+    <!-- Bootstrap JavaScript dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-oP16R7oHedM6DjOnwgh5b5XwqCjR46Q0MOyM98cS9DDgT86rZ/27dX0Rz1i5BRdD" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oB4n8k6qKZb6x1sLwITh4IMbAXM5DdJvO4Pt/k6bUomNdllbU8KtQJ7H13c/kFSd" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha384-3Y6WCMqO6vLZkBu1MIgkTX4sVMSihujRzB1G1NChj5vZ2Kxw8D4IUlZLsyG3Rz5Kb" crossorigin="anonymous"></script>
+</body>
+</html>
