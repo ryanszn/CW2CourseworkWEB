@@ -160,42 +160,5 @@
     <footer class="footer">
         <p>&copy; 2024 Charity Hospice. All rights reserved.</p>
     </footer>
-    
-    <!-- Script to handle date expiration checks -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Select all card footers
-            var cardFooters = document.querySelectorAll(".card-footer");
-
-            // Iterate over each card footer
-            cardFooters.forEach(function(cardFooter) {
-                var dateString = cardFooter.textContent.split(", on ")[1];
-                var entryDate = new Date(dateString);
-                var currentDate = new Date();
-
-                // Check if the entry date has expired
-                if (currentDate > entryDate) {
-                    cardFooter.textContent += " - Expired"; // Append "Expired" if true
-                }
-            });
-
-            // Get expiration date input field
-            var expirationDateInput = document.getElementById("expirationDate");
-
-            // Add change event listener to the input field
-            if (expirationDateInput) {
-                expirationDateInput.addEventListener("change", function() {
-                    var expirationDateString = this.value;
-                    var expirationDate = new Date(expirationDateString);
-                    var currentDate = new Date();
-
-                    // Alert if expiration date has already passed
-                    if (currentDate > expirationDate) {
-                        alert("Expiration date has already passed. Please choose a valid expiration date.");
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>
